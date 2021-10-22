@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="ToDoAppMVVM.Views.CalendarWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ToDoAppMVVM.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CalendarWindow"
+    Width="400"
+    Height="330"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Margin="15" FontSize="20" Text="Выберете дедлайн таска" />
+
+        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="#edd8d8" Text="d/h/m" />
+        <StackPanel Margin="15,0,15,15" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBox x:Name="DayAmount" Text="{Binding TaskTime.Day}" />
+            <TextBlock FontSize="20" />
+            <TextBox x:Name="HoursAmount" Text="{Binding TaskTime.Hour}" />
+            <TextBlock FontSize="20" Text=":" />
+            <TextBox x:Name="MinutesAmount" Text="{Binding TaskTime.Minute}" />
+        </StackPanel>
+
+        <Button
+            MinWidth="40"
+            MinHeight="10"
+            Padding="3"
+            HorizontalAlignment="Center"
+            Command="{Binding CloseCalendar}"
+            Content="Сохранить" />
+    </StackPanel>
+</Window>
