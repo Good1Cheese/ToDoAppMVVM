@@ -19,8 +19,8 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Margin="15" FontSize="20" Text="Выберете дедлайн таска" />
+        <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="#edd8d8" Text="d/h/m" />
 
-        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="#edd8d8" Text="d/h/m" />
         <StackPanel Margin="15,0,15,15" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBox x:Name="DayAmount" Text="{Binding TaskTime.Day}" />
             <TextBlock FontSize="20" />

@@ -2,16 +2,13 @@
 using ToDoAppMVVM.Models;
 using System;
 using System.Windows.Media;
-using System.Windows;
-using System.ComponentModel;
 
 namespace ToDoAppMVVM.ViewModels
 {
     public class CalendarViewModel
     {
-        private const string _notificationSoundPath = @"C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\ToDoAppMVVM\ToDoAppMVVM\Assets\DeadlineSound.mp3";
-
-        private TasksViewModel _taskViewModel;
+        private const string _NOTIFICATION_SOUND_PATH = @"C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\ToDoAppMVVM\ToDoAppMVVM\Assets\DeadlineSound.mp3";
+        private readonly TasksViewModel _taskViewModel;
         private CalendarWindow _calendarWindow;
         private readonly MediaPlayer _mediaPlayer = new();
         private string _currentTaskTitle;
@@ -30,8 +27,6 @@ namespace ToDoAppMVVM.ViewModels
 
             CloseCalendar = new RelayCommand((object obj) =>
             {
-                _calendarWindow.Close();
-
                 RemindTask(TaskTime.GetDateTime());
             });
         }
@@ -59,7 +54,7 @@ namespace ToDoAppMVVM.ViewModels
 
         private void PlayReminderSound()
         {
-            Uri source = new(_notificationSoundPath, UriKind.RelativeOrAbsolute);
+            Uri source = new(_NOTIFICATION_SOUND_PATH, UriKind.RelativeOrAbsolute);
             _mediaPlayer.Open(source);
             _mediaPlayer.Play();
         }

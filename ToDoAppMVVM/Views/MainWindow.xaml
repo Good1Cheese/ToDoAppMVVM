@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="800"
-    Height="450"
+    Height="500"
     mc:Ignorable="d">
 
     <Window.DataContext>
@@ -17,7 +17,7 @@
 
     <Window.Resources>
         <Style TargetType="ListBoxItem">
-            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <Setter Property="BorderThickness" Value="2,2,2,2" />
             <Setter Property="BorderBrush" Value="#adafb4" />
         </Style>
         <Style x:Key="TaskButton" TargetType="Button">
@@ -39,11 +39,18 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="70" />
+            <RowDefinition MaxHeight="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
         <TextBlock HorizontalAlignment="Center" FontSize="50" Foreground="#edd8d8" Text="todos" />
 
         <TextBox
             x:Name="MainTextBox"
+            Grid.Row="1"
             MinWidth="225"
             Margin="10"
             Padding="10"
@@ -58,9 +65,10 @@
 
         <ListBox
             x:Name="TasksList"
+            Grid.Row="2"
             Margin="10"
             HorizontalAlignment="Center"
-            BorderThickness="1,1,1,0"
+            BorderThickness="0"
             ItemsSource="{Binding Path=TasksViewModel.Tasks}"
             SelectedItem="{Binding Path=TasksViewModel.SelectedTask}">
             <ListBox.ItemTemplate>
@@ -86,5 +94,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-    </StackPanel>
+    </Grid>
 </Window>

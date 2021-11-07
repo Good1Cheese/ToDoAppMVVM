@@ -14,16 +14,15 @@ namespace ToDoAppMVVM.ViewModels
 
         public TasksViewModel()
         {
-            Tasks.Add(new Task("Сделать пагинацию в главном меню"));
-            Tasks.Add(new Task("Короче сделать scrollable list при выборе даты в таске"));
-            Tasks.Add(new Task("Сделать так, чтобы дата таска выбиралась при создании"));
-            Tasks.Add(new Task("Залить все на гитхаб"));
-
             AddTask = new RelayCommand((obj) =>
             {
                 TextBox inputTextBox = (TextBox)obj;
 
-                if (string.IsNullOrEmpty(inputTextBox.Text) || FindTask(inputTextBox.Text) != null) { return; }
+                if (string.IsNullOrEmpty(inputTextBox.Text) || FindTask(inputTextBox.Text) != null) 
+                {
+                    inputTextBox.Text = string.Empty;
+                    return;
+                }
 
                 var task = new Task(inputTextBox.Text);
                 Tasks.Add(task);
